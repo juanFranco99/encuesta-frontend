@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <p-card>
+      <div class="card-content">
+        <h4>Listado de generos</h4>
+        <button pButton label="Nuevo" icon="pi pi-plus" (click)="openDialogGenero(null)" class="p-button-sm p-button-info"></button>
+      </div>
+      <dx-data-grid #gridContainer [dataSource]="generos" [showBorders]="true" [allowColumnReordering]="true" [allowColumnResizing]="true" [remoteOperations]="true" [rowAlternationEnabled]="true" >
+        <dxo-state-storing [enabled]="true" type="localStorage" storageKey="genero-list"></dxo-state-storing>
+        <dxo-export [enabled]="true" fileName="Listado De Generos Musicales"></dxo-export>
+        <dxo-column-chooser [enabled]="true" mode="select"></dxo-column-chooser>
+        <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+        <dxo-search-panel [visible]="true" [width]="240" placeholder="Buscar..."></dxo-search-panel>
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true"></dxo-pager>
+        <dxi-column dataField="id"  caption="ID" [fixed]="true" [allowHeaderFiltering]="false">
+          <dxo-header-filter></dxo-header-filter>
+        </dxi-column>
+
+        <dxi-column dataField="nombreGenero"  caption="Nombre" [fixed]="true" [allowHeaderFiltering]="false">
+          <dxo-header-filter></dxo-header-filter>
+        </dxi-column>
+
+        <dxi-column type="buttons" [width]="50" [allowHiding]="false">
+          <dxi-button icon="pi pi-pencil" hint="Editar"  [onClick]="editGenero"></dxi-button>
+        </dxi-column>
+
+
+      </dx-data-grid>
+    </p-card>
+  </div>
+</div>
+
+<p-toast></p-toast>

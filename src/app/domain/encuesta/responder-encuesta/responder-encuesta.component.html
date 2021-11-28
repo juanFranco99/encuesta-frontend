@@ -1,0 +1,39 @@
+<div *ngIf="!isEncuestaContestada" class="center">
+  <p-card header="Encuesta" subheader="Encuesta sobre genero musical" [style]="{width: '360px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/img/generomusical.jpg">
+    </ng-template>
+    <p>Esta es una encuesta para para identificar el genero musical que mas te guste</p>
+
+    <label for="usuario">Email</label>
+    <input type="text" id="usuario" [style]="{'border-radius': '5px', 'width': '100%'}" [(ngModel)]="encuesta.emailUsuario"
+           pInputText >
+    <small class="p-error" *ngIf="isSubmited && !encuesta.emailUsuario">Favor complete el campo</small>
+
+    <label for="genero">Escoga un genero</label>
+    <div *ngFor="let genero of generos" class="p-field-checkbox">
+      <p-radioButton id="genero" name="category" [value]="genero" [label]="genero.nombreGenero" [(ngModel)]="encuesta.generoMusica"></p-radioButton>
+<!--      <label [for]="category.key">{{category.name}}</label>-->
+    </div>
+
+    <ng-template pTemplate="footer">
+     <div class="center">
+       <button pButton class="p-button-success" (click)="save()" label="Enviar" icon="pi pi-check"></button>
+     </div>
+    </ng-template>
+  </p-card>
+</div>
+
+<div *ngIf="isEncuestaContestada">
+  <div class="center">
+    <p-card header="Gracias!" [style]="{width: '360px'}" styleClass="p-card-shadow">
+      <ng-template pTemplate="header">
+        <img alt="Card" src="assets/img/gracias.jpg">
+      </ng-template>
+      <p>Gracias por contestar nuestra encuesta</p>
+
+    </p-card>
+  </div>
+</div>
+
+<p-toast></p-toast>

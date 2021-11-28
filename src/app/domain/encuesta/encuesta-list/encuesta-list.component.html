@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <p-card>
+      <div class="card-content">
+        <h4>Resultado encuesta</h4>
+      </div>
+      <dx-data-grid #gridContainer [dataSource]="encuestas" [showBorders]="true" [allowColumnReordering]="true" [allowColumnResizing]="true" [remoteOperations]="true" [rowAlternationEnabled]="true" >
+        <dxo-state-storing [enabled]="true" type="localStorage" storageKey="encuesat-list"></dxo-state-storing>
+        <dxo-export [enabled]="true" fileName="Resultado de encuesta"></dxo-export>
+        <dxo-column-chooser [enabled]="true" mode="select"></dxo-column-chooser>
+        <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+        <dxo-search-panel [visible]="true" [width]="240" placeholder="Buscar..."></dxo-search-panel>
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true"></dxo-pager>
+        <dxi-column dataField="emailUsuario"  caption="Usuario" [fixed]="true" [allowHeaderFiltering]="false">
+          <dxo-header-filter></dxo-header-filter>
+        </dxi-column>
+
+        <dxi-column dataField="generoMusica.nombreGenero"  caption="Genero escogido" [fixed]="true" [allowHeaderFiltering]="false">
+          <dxo-header-filter></dxo-header-filter>
+        </dxi-column>
+
+<!--        <dxi-column type="buttons" [width]="50" [allowHiding]="false">-->
+<!--          <dxi-button icon="pi pi-pencil" hint="Editar"  [onClick]="editGenero"></dxi-button>-->
+<!--        </dxi-column>-->
+
+
+      </dx-data-grid>
+    </p-card>
+  </div>
+</div>
+
+<p-toast></p-toast>
+
