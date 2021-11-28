@@ -17,6 +17,7 @@ import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {RadioButtonModule} from "primeng/radiobutton";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -37,7 +38,8 @@ import {RadioButtonModule} from "primeng/radiobutton";
     ButtonModule,
     InputTextModule,
     FormsModule,
-    RadioButtonModule
+    RadioButtonModule,
+    RouterModule
   ],
   providers:[
     EncuestaService,

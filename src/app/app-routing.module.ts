@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'encuesta',
     loadChildren: ()=> import('./domain/encuesta/encuesta.module').then(g => g.EncuestaModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: ()=> import('./domain/dashboard/dashboard.module').then(g => g.DashboardModule)
   }
 ];
 

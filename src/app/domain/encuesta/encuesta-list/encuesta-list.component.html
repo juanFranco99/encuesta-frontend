@@ -3,6 +3,8 @@
     <p-card>
       <div class="card-content">
         <h4>Resultado encuesta</h4>
+        <a pButton label="Realizar encuesta" icon="pi pi-question-circle" [routerLink]="'/encuesta/responder'" target="_blank"  class="p-button-sm p-button-info">
+        </a>
       </div>
       <dx-data-grid #gridContainer [dataSource]="encuestas" [showBorders]="true" [allowColumnReordering]="true" [allowColumnResizing]="true" [remoteOperations]="true" [rowAlternationEnabled]="true" >
         <dxo-state-storing [enabled]="true" type="localStorage" storageKey="encuesat-list"></dxo-state-storing>

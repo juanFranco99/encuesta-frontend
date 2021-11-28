@@ -13,4 +13,8 @@ export class EncuestaService extends GenericService<Encuesta>{
   ) {
     super("/encuesta/", httpClient)
   }
+
+  getResumen(){
+    return this.httpClient.get<any[]>(this.urlPath + 'resumen');
+  }
 }

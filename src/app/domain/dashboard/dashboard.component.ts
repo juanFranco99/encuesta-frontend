@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {EncuestaService} from "../encuesta/encuesta.service";
+import DevExpress from "devextreme";
+import data = DevExpress.data;
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  resumen: any[];
+
+  constructor(
+    private service: EncuestaService
+  ) { }
 
   ngOnInit(): void {
+    this.getResumen()
   }
 
+  getResumen(){
+    this.service.getResumen().subscribe(
+      (data => {
+        this.resumen = [...data];
+        console.log(this.resumen)
+      })
+    )
+  }
+
+  customizeLabel(arg: any) {
+    return `${arg.valueText} (${arg.percentText})`;
+  }
 }

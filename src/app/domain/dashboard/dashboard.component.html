@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+<dx-pie-chart
+  id="pie"
+  title="Resumen de encuesta"
+  palette="bright"
+  [dataSource]="resumen"
+>
+  <dxo-legend
+    orientation="horizontal"
+    itemTextPosition="right"
+    horizontalAlignment="center"
+    verticalAlignment="bottom"
+    [columnCount]="4"
+  ></dxo-legend>
+  <dxo-export [enabled]="true"></dxo-export>
+  <dxi-series argumentField="genero" valueField="cantidad">
+    <dxo-label
+      [visible]="true"
+      position="columns"
+      [customizeText]="customizeLabel"
+    >
+      <dxo-font [size]="16"></dxo-font>
+      <dxo-connector [visible]="true" [width]="0.5"></dxo-connector>
+    </dxo-label>
+  </dxi-series>
+</dx-pie-chart>
